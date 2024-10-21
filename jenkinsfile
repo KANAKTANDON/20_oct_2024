@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Checkout the code from GitHub
                 echo "Checking out project from GitHub..."
-                git 'https://github.com/KANAKTANDON/com.jenkins.git'
+                git 'https://github.com/KANAKTANDON/20_oct_2024.git'
             }
         }
         stage('Build') {
