@@ -63,6 +63,8 @@ public class extentReports {
             Thread.sleep(3000);
             test.log(LogStatus.PASS, "trump white house official website ",
                     test.addScreenCapture(takeScreenshot("trump white house")));
+            
+            System.out.println("Test Passed, check successfull");
            
         } catch (Exception e) {
         	System.out.println(e);
