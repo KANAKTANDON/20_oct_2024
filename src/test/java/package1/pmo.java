@@ -11,6 +11,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.google.common.io.Files;
@@ -18,23 +21,59 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class extentReports {
+public class pmo extends baseclass {
 
+	@Test( priority = 1)
+	public void TC_list_of_indian_prime_ministers() throws Exception {
+
+		driver.get("https://www.pmindia.gov.in/en/");
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS, "pmo website open", test.addScreenCapture(takeScreenshot("pmo website")));
+
+		// click menu
+		driver.findElement(By.xpath("//i[@class='icon-align-justify']")).click();
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "menu icon clicked", test.addScreenCapture(takeScreenshot("menu icon clicked")));
+
+		// click former prime ministers
+		driver.findElement(By.xpath("//a[contains (text(),'Former Prime Ministers')]")).click();
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "former prime minister fetched",
+				test.addScreenCapture(takeScreenshot("former prime minister fetched0")));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		
+		//scroll down
+		for (int i=1; i<=6; i++) {
+			js.executeScript("window.scrollBy(0, 700)");
+			test.log(LogStatus.PASS, "former prime ministers list"+i,
+					test.addScreenCapture(takeScreenshot("former prime minister fetched"+i)));
+			Thread.sleep(2000);
+			}
+		
+		
+
+		
+
+		String xpath = "//div[@class='former-description']/h3 | //div[@class='former-description']/span";
+		List<WebElement> list = driver.findElements(By.xpath(xpath));
+
+		int counter = 0;
+		for (WebElement i : list) {
+			System.out.println(i.getText());
+			//test.log(LogStatus.INFO, i.getText());
+			counter++;
+
+			if (counter == 2) {
+				counter = 0;
+				System.out.println("\n");
+			}
+		}
+
+	}
 	
-	static WebDriver driver;
-	String reportPath = System.getProperty("user.dir") + "/extentReports" + "/reports.html";
-	ExtentReports reports = new ExtentReports(reportPath);
-	static ExtentTest test;
-
-    @Test // Annotate the method with @Test
-    public void test1() throws Exception {
-        test = reports.startTest("Donald Trump Google Search");
-
-        // Setup ChromeDriver
-        String driverPath = System.getProperty("user.dir") + "/driver/chromedriver129.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+	@Test ( priority = 2)
+    public void TC_donald_trump_google_search() throws Exception {
 
         try {
             //open google page
@@ -69,42 +108,7 @@ public class extentReports {
         } catch (Exception e) {
         	System.out.println(e);
             test.log(LogStatus.FAIL, "some exception occurred: " + e);
-        } finally {
-            Thread.sleep(5000);
-            System.out.println("teardown begins ...");
-            driver.quit();
-            reports.endTest(test);
-            reports.flush();
-            reports.close();
-        }
+        } 
     }
-
-
-    public static void scrollDownToXpath(String xpath) throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement e = driver.findElement(By.xpath(xpath));
-
-        int counter = 1;
-        while (counter < 5) {
-            // If the element is found, exit the loop
-            if (e.isDisplayed()) {
-                break;
-            } else {
-                System.out.println("Element not found");
-                js.executeScript("window.scrollBy(0,50)");
-                Thread.sleep(5000);
-                counter++;
-            }
-        }
-    }
-    
-    public static String takeScreenshot(String name) throws Exception {
-		String screenshotDestination = System.getProperty("user.dir") + "/screenshots/"+name+".jpg";
-		TakesScreenshot screenshotTaker = (TakesScreenshot) driver;
-		File sourceFile = screenshotTaker.getScreenshotAs(OutputType.FILE);
-		File dest = new File(screenshotDestination);
-		Files.copy(sourceFile, dest);
-		return dest.getAbsolutePath();
-	}
 
 }

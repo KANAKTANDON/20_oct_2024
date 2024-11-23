@@ -3,7 +3,12 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="package1.extentReports"/>
+      <class name="package1.pmo">
+        <methods>
+          <include name="TC_list_of_indian_prime_ministers"/>
+          <include name="TC_donald_trump_google_search"/>
+        </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

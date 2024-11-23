@@ -1,17 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-11T09:54:13 IST" name="Default suite" finished-at="2024-11-11T09:54:44 IST" duration-ms="30564">
+  <suite started-at="2024-11-23T11:33:54 IST" name="Suite" finished-at="2024-11-23T11:34:52 IST" duration-ms="58183">
     <groups>
     </groups>
-    <test started-at="2024-11-11T09:54:13 IST" name="Default test" finished-at="2024-11-11T09:54:44 IST" duration-ms="30564">
-      <class name="package1.extentReports">
-        <test-method signature="test1()[pri:0, instance:package1.extentReports@568ff82]" started-at="2024-11-11T09:54:13 IST" name="test1" finished-at="2024-11-11T09:54:44 IST" duration-ms="30509" status="PASS">
+    <test started-at="2024-11-23T11:33:54 IST" name="Test" finished-at="2024-11-23T11:34:52 IST" duration-ms="58183">
+      <class name="package1.pmo">
+        <test-method is-config="true" signature="setupReports()[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:33:54 IST" name="setupReports" finished-at="2024-11-23T11:33:54 IST" duration-ms="222" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
-      </class> <!-- package1.extentReports -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setupReports -->
+        <test-method is-config="true" signature="setup(org.testng.ITestResult)[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:33:54 IST" name="setup" finished-at="2024-11-23T11:33:57 IST" duration-ms="3140" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=pmo.TC_list_of_indian_prime_ministers()[pri:1, instance:package1.pmo@323b36e0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="TC_list_of_indian_prime_ministers()[pri:1, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:33:57 IST" name="TC_list_of_indian_prime_ministers" finished-at="2024-11-23T11:34:27 IST" duration-ms="29320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_list_of_indian_prime_ministers -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:34:27 IST" name="tearDown" finished-at="2024-11-23T11:34:28 IST" duration-ms="896" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC_list_of_indian_prime_ministers status=SUCCESS method=pmo.TC_list_of_indian_prime_ministers()[pri:1, instance:package1.pmo@323b36e0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup(org.testng.ITestResult)[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:34:28 IST" name="setup" finished-at="2024-11-23T11:34:30 IST" duration-ms="2174" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=pmo.TC_donald_trump_google_search()[pri:2, instance:package1.pmo@323b36e0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="TC_donald_trump_google_search()[pri:2, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:34:30 IST" name="TC_donald_trump_google_search" finished-at="2024-11-23T11:34:51 IST" duration-ms="21528" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_donald_trump_google_search -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:34:51 IST" name="tearDown" finished-at="2024-11-23T11:34:52 IST" duration-ms="728" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC_donald_trump_google_search status=SUCCESS method=pmo.TC_donald_trump_google_search()[pri:2, instance:package1.pmo@323b36e0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="closeReports()[pri:0, instance:package1.pmo@323b36e0]" started-at="2024-11-23T11:34:52 IST" name="closeReports" finished-at="2024-11-23T11:34:52 IST" duration-ms="125" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeReports -->
+      </class> <!-- package1.pmo -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
